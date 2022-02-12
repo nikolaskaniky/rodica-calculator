@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classes from "./results.module.scss";
 
 const Results = (props) => {
-  const { users } = props;
+  const { users, allResults } = props;
   const [deleteIndex, setDeleteIndex] = useState(0);
   const deleteHandler = (name) => {
     fetch(`/api/users-chart-profile`, {
@@ -16,7 +16,7 @@ const Results = (props) => {
 
   return (
     <ul className={classes.results}>
-      {users.map((user, index) => (
+      {allResults.map((user, index) => (
         <li key={index}>
           <div
             className={classes.delete}

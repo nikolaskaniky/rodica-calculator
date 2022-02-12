@@ -8,6 +8,8 @@ import path from "path";
 import fs from "fs";
 
 const HomePage = (props) => {
+  const [allResults, setAllResults] = useState([]);
+  console.log(allResults, "results");
   const { users } = props;
   const [showResults, setShowResults] = useState(false);
   const showResultsHandler = () =>
@@ -196,6 +198,25 @@ const HomePage = (props) => {
       vocaleSiConsoane: consoaneSiVocaleArray,
     };
 
+    setAllResults([
+      ...allResults,
+      {
+        firstName: firstName,
+        lastName: lastName,
+        day: birth.day,
+        month: birth.month,
+        year: birth.year,
+        sum: sum,
+        sumResult: sumResult,
+        extraResult: sumResult2Digits,
+        sumMinusSpecialNumber: sumMinusSpecialNumber,
+        secondSpecialNumberResult: secondSpecialNumberResult,
+        thirdSpecialNumberResult: thirdSpecialNumberResult,
+        elements: elementsDigitsArray,
+        vocaleSiConsoane: consoaneSiVocaleArray,
+      },
+    ]);
+
     fetch("/api/users-chart-profile", {
       method: "POST",
       body: JSON.stringify(reqBody),
@@ -244,7 +265,7 @@ const HomePage = (props) => {
         <button onClick={showResultsHandler} className={classes["results-btn"]}>
           Show Results
         </button>
-        {showResults && <Results users={users} />}
+        {showResults && <Results allResults={allResults} users={users} />}
       </div>
     </main>
   );
