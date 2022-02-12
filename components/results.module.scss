@@ -1,0 +1,78 @@
+ul.results {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  li {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    // grid-template-columns: repeat(2, minmax(120px, 180px));
+    row-gap: 20px;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 4px rgb(0, 119, 255);
+    position: relative;
+
+    h4 {
+      span {
+        color: black;
+      }
+    }
+
+    p.elements {
+      span {
+        margin-right: 4px;
+      }
+
+      .foc {
+        color: red;
+      }
+
+      .apa {
+        color: blue;
+      }
+
+      .aer {
+        color: turquoise;
+      }
+
+      .pamant {
+        color: brown;
+      }
+    }
+
+    p.vocale {
+      span {
+        margin-right: 4px;
+      }
+
+      .vocala {
+        color: blue;
+      }
+
+      .consoana {
+        color: turquoise;
+      }
+    }
+
+    .delete {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    h4 {
+      font-size: 1rem;
+      color: rgb(0, 132, 255);
+      text-shadow: 0px 0px 0px black;
+    }
+  }
+}
